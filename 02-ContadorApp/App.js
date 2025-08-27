@@ -1,12 +1,10 @@
 import { StatusBar } from "expo-status-bar";
 import { useState } from "react";
-import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
-
+import { StyleSheet, Text, View, TouchableOpacity, ImageBackground } from "react-native";
 export default function App() {
   const [contador, setContador] = useState(0);
   const [textCounter, setTextCounter] = useState(10);
   const [randomText, setRandomText] = useState([]);
-
   const handleTextCounter = () => {
       if (contador == textCounter) {
         setTextCounter(textCounter + 10);
@@ -37,7 +35,10 @@ export default function App() {
   return (
     <View style={styles.container}>
 
-      <Text style={styles.title}>{randomText[0]}</Text>
+      
+
+      <View style={styles.infoContainer}>
+
 
       <Text style={styles.title}>Contador</Text>
       <Text style={styles.counterText}>{contador}</Text>
@@ -52,11 +53,14 @@ export default function App() {
         </TouchableOpacity>
       </View>
 
+      <Text style={styles.randomText}>{randomText[0]}</Text>
+
+      </View>
       <TouchableOpacity
         onPress={handleZerar}
         style={[styles.button, styles.resetButton]}
       >
-        <Text style={styles.resetText}>Zerar contador</Text>
+        <Text style={styles.resetText}>Zerar contador !</Text>
       </TouchableOpacity>
 
       <StatusBar style="auto" />
@@ -67,7 +71,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#E5E5CB",
+    backgroundColor: "grey",
     alignItems: "center",
     justifyContent: "center",
   },
@@ -85,21 +89,44 @@ const styles = StyleSheet.create({
   button: {
     backgroundColor: "#D5CEA3",
     paddingHorizontal: 40,
-    paddingVertical: 15,
-    borderRadius: 10,
+    paddingVertical: 10,
+    borderRadius: 1,
   },
+
+  infoContainer :{
+    borderColor: "rgb(109, 4, 100)",
+    borderWidth: 10,
+    borderRadius: 100,
+    padding: 20,
+    alignItems: "center",
+    backgroundColor: "purple",
+    minHeight: 600
+
+  },
+
   buttonContainer: {
     flexDirection: "row-reverse",
     marginBottom: 20,
     gap: 6,
   },
   resetButton: {
-    backgroundColor: "#3C2A21",
+    borderWidth: 3,
+    borderLeftColor: "#AAA",
+    borderRightColor: "#AAA",
+    borderTopColor: "#565656",
+    borderBottomColor: "#565656",
+    marginTop: 30,
+    backgroundColor: "#747474",
+    outlineColor: "black",
+    outlineWidth: 1.5
   },
   resetText: {
+    textShadowRadius: 1,
+    textShadowColor: "#000",
+    textShadowOffset: {width: 2, height: 2},
     color: "#E5E5CB",
-    fontSize: 20,
-    fontWeight: "bold",
+    fontSize: 15,
+    fontWeight: "light" 
   },
   buttonText: {
     color: "#3C2A21",
@@ -107,4 +134,8 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     textAlign: "center",
   },
+  randomText :{
+    fontSize: 18,
+    color: "whitesmoke"
+  }
 });
