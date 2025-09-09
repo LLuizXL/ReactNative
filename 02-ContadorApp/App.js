@@ -32,7 +32,11 @@ export default function App() {
     contador > 0 && setContador(0);
   };
 
+  const bgImage = { uri: 'https://ih1.redbubble.net/image.390707307.7203/flat,750x1000,075,t.u6.jpg'}
+
   return (
+    
+
     <View style={styles.container}>
 
       
