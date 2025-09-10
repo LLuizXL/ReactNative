@@ -20,7 +20,7 @@ const SensorCard = (props) => {
         <Text style={styles.unit}>{props.unit}</Text>
       </View>
       <View style={styles.progressBar}>
-        <View style={[styles.progressFill, { width: props.value }]} />
+        <View style={[styles.progressFill, {width: props.value}]} />
       </View>
       <View style={styles.stats}>
         <View style={styles.stat}>
@@ -104,10 +104,19 @@ const createStyles = (theme) =>
     progressFill: {
       color: theme.buttonPrimary,
     },
-    stats: {},
-    stat: {},
-    statLabel: {},
-    statValue: {},
+    stats: {
+      flexDirection: 'column',
+      alignItems: 'center'
+    },
+    stat: {
+    },
+    statLabel: {
+      color: theme.text
+    },
+    statValue: {
+      color: theme.text
+
+    },
   });
 
 export default memo(SensorCard);
